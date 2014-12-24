@@ -1,0 +1,7 @@
+Django==1.7.1
+dj-database-url==0.3.0
+psycopg2==2.5.4
+python3-openid==3.0.5
+virtualenv==1.11.6
+waitress==0.8.9
+whitenoise==1.0.6
