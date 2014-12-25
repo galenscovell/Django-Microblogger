@@ -1,0 +1,473 @@
+
+
+html {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #EAEAEA;
+    overflow-y: scroll;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    clear: both;
+}
+
+
+
+/* -------------- Nav bar --------------    */
+#nav {
+    position: fixed;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    width: 150px;
+    height: 100vh;
+    float: left;
+    z-index: 10;
+    background: #446CB3;
+    margin: 0;
+    padding: 0;
+    box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.3);
+}
+
+#nav ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+#nav li {
+    float: left;
+    width: 100%;
+    text-align: left;
+    transition: 0.2s;
+}
+
+#nav li:hover {
+    background-color: hsla(229, 100%, 100%, 0.2);
+    transition: 0.1;
+}
+
+#nav li:active {
+    background-color: hsla(229, 100%, 100%, 0.4);
+}
+
+#nav li a {
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.4s;
+}
+
+#logo {
+    position: relative;
+    height: 180px;
+    width: 90%;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 6px;
+    padding-top: 60px;
+    text-align: center;
+    background: hsla(229, 100%, 100%, 0.9);
+    color: rgba(50, 200, 200, 1);
+    transition: 0.3s;
+}
+
+#logo img {
+    padding-top: 50px;
+    height: 130px;
+    width: 130px;
+}
+
+#logo a {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#logo:hover {
+    background: hsla(212, 90%, 90%, 0.3);
+    transition: 0.2s;
+}
+
+li span {
+    color: #81CFE0;
+}
+
+#search {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+
+#search_content {
+    display: inline-block;
+    width: 85%;
+    height: 30px;
+    margin: 3px;
+    font-size: 16px;
+    border: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 0px 6px;
+}
+
+button[type="search"] {
+    position: relative;
+    font-size: 14px;
+    padding: 8px 26px;
+    margin-top: 4px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.7);
+    background: #005C5F;
+    color: #ffffff;
+}
+
+button[type="search"]:hover {
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.7);
+    top: 2px;
+    cursor: pointer;
+}
+
+button[type="search"]:active {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.7);
+    top: 6px;
+    transition: 0.2s;
+}
+
+
+
+
+/* -------------- Page Title Section --------------    */
+#title_div {
+    width: 90%;
+    height: 100px;
+    margin: 0 auto;
+    background: #446CB3;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 3em;
+    letter-spacing: 6px;
+    width: 100%;
+    color: #FFFFFF;
+    line-height: 100px;
+    margin-top: 20px;
+}
+
+
+
+
+/* -------------- Main Section --------------    */
+#main_container {
+    position: absolute;
+    width: calc(100% - 150px);
+    min-height: 100%;
+    margin-left: 150px;
+    text-align: center;
+}
+
+
+
+
+/* -------------- Content Container --------------    */
+#sub_container {
+    position: relative;
+    background: #FFFFFF;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 0;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0px 0.75px 0.5px rgba(0, 0, 0, 0.2);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+
+/* -------------- List --------------    */
+
+
+/* -------------- Detail --------------    */
+#post_main {
+    width: 100%;
+    margin-top: 8px;
+    padding: 0;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#content_container {
+    width: 80%;
+    display: inline-block;
+}
+
+#content_user {
+    width: 100%;
+    text-align: left;
+    position: relative;
+    top: 0;
+}
+
+#post_author {
+    font-size: 24px;
+    margin: 0;
+    color: gray;
+}
+
+#content {
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+}
+
+#post_content {
+    margin: 0;
+    font-size: 32px;
+    text-align: left;
+}
+
+#post_tags {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+#options_time {
+    width: 100%;
+    position: relative;
+}
+
+#post_time {
+    margin: 0;
+    text-align: left;
+    font-size: 12px;
+    color: gray;
+}
+
+#post_options {
+    margin-top: 10px;
+    text-align: left;
+}
+
+#post_options img {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+}
+
+#post_options img:hover {
+    background: #0879C8;
+    transition: 0.4s;
+}
+
+#post_likes {
+    width: 120px;
+    margin: 5px;
+    font-size: 18px;
+    text-align: left;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    color: gray;
+}
+
+#post_likes i {
+    color: rgba(200, 180, 0, 1);
+    font-size: 24px;
+}
+
+#post_likes span {
+    color: rgba(0, 80, 180, 0.6);
+    font-size: 24px;
+    transition: 0.2s;
+}
+
+#post_likes span:hover {
+    color: rgba(0, 80, 180, 0.9);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#comment_section {
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+    position: relative;
+    background-color: #F5F5F5;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#add_comment_content {
+    margin-top: 20px;
+    width: 45%;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 21px;
+    color: gray;
+    padding: 10px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#add_comment_author {
+    margin-top: 20px;
+    width: 25%;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 21px;
+    color: gray;
+    padding: 10px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#comment_list {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+#comment_content {
+    display: inline-block;
+    text-align: left;
+    padding: 20px 20px 20px 20px;
+    width: 92%;
+    height: 100%;
+    position: relative;
+    word-wrap: break-word;
+    background: rgba(235, 235, 235, 1);
+}
+
+#comment_content_main {
+    font-size: 18px;
+}
+
+#comment_upvotes {
+    float: right;
+    font-size: 12px;
+    width: 30px;
+    margin: 5px;
+}
+
+#comment_extra {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+    height: 40px;
+    font-size: 21px;
+    line-height: 18px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#comment_content_time {
+    font-size: 12px;
+    color: gray;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+}
+
+#upvoting_option {
+    font-size: 10px;
+}
+
+#upvoting_option a {
+    color: gray;
+    text-decoration: none;
+    margin: 5px;
+    transition: 0.2s;
+}
+
+#upvoting_option a:hover {
+    color: blue;
+    transition: 0.1s;
+}
+
+#comment_list p {
+    margin: 0;
+}
+
+button[type="submit"] {
+    position: relative;
+    font-size: 14px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    margin: 10px;
+    margin-bottom: 30px;
+    padding: 8px 26px;
+    box-shadow: 0px 6px 0px #005C5F;
+    background: #00979C;
+    color: #ffffff;
+}
+
+button[type="submit"]:hover {
+    box-shadow: 0px 4px 0px #005C5F;
+    top: 2px;
+    cursor: pointer;
+}
+
+button[type="submit"]:active {
+    box-shadow: 0px 0px 0px #2F3134;
+    top: 6px;
+    transition: 0.2s;
+}
+ 
+.create_post, .edit_post {
+    width: 30%;
+    margin: 5px;
+    line-height: 20px;
+    font-size: 16px;
+    color: #3E3F3A;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 5px;
+    color: gray;
+    padding: 10px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#create_content, #edit_content {
+    width: 80%;
+    height: 60px;
+    margin: 5px;
+    font-size: 18px;
+    font-family: 'Ubuntu', sans-serif;
+    color: gray;
+    padding: 10px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.back_button i {
+    opacity: 0.5;
+    margin-bottom: 20px;
+    color: #000000;
+    transition: 0.4s;
+}
+
+.back_button i:hover {
+    opacity: 0.8;
+    transition: 0.4s;
+}
+
+
+
+
+/* ------------ About Page ------------ */

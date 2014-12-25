@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf8">
+        <title>{{ page_title }} | &#x3BC;blog</title>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu|Montserrat' rel='stylesheet'>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+
+            <!-- Nav bar -->
+            <div id="nav">
+                <ul>
+                    <div id="logo"><a href="{% url 'blog.views.main_page' %}"><img src="{% static 'css/img/ice.gif' %}"></img></a></div>
+                    <li><a href="{% url 'blog.views.post_list' %}"><span class="fa fa-bars"></span> LIST</a></li>
+                    <li><a href=""><span class="fa fa-bars"></span> NEW</a></li>
+                    <li><a href=""><span class="fa fa-bars"></span> TOPICS</a></li>
+
+                    <div id="search">
+                    </div>
+                </ul>
+            </div>
+
+        </header>
+
+
+        <!-- Main Page Area -->
+        <div id="main_container">
+            <div id="title_div">
+                <h3>{{ page_title }}</h3>
+            </div>
+
+
+            <!-- Content -->
+            <div id="sub_container">
+
+                 <!-- Insert new routes/pages -->
+                {% block content %}
+                {% endblock %}
+            </div>
+
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="{% static 'css/js/dynamic.js' %}"></script>
+    </body>
+</html>
