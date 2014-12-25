@@ -4,7 +4,7 @@ from django.utils import timezone
 class Post(models.Model):
     author = models.ForeignKey('auth.user')
     title = models.CharField(max_length=24)
-    content = models.CharField(max_length=160)
+    content = models.TextField(max_length=120)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(blank=True, null=True)
     favorites = models.SmallIntegerField(default=0)

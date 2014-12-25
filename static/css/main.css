@@ -194,12 +194,109 @@ h3 {
     border-radius: 0px 0px 5px 5px;
     box-shadow: 0px 0.75px 0.5px rgba(0, 0, 0, 0.2);
     font-family: 'Ubuntu', sans-serif;
+    text-align: center;
 }
 
 
 
 
 /* -------------- List --------------    */
+.post_list_container {
+    width: 90%;
+    display: inline-block;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.post_listing {
+    width: 24.5%;
+    margin: 2px 0;
+    display: inline-block;
+}
+
+.post_list_block {
+    height: 100px;
+    background: #69D0F7;
+    border-radius: 2px;
+    transition: 0.2s;
+}
+
+.post_list_block:hover {
+    background: #f3f3f3;
+    transition: 0.1s;
+}
+
+.list_id {
+    margin: 0;
+    text-align: right;
+}
+
+.list_title {
+    margin: 0;
+    text-align: center;
+    font-size: 21px;
+}
+
+.list_author {
+    margin: 0;
+    text-align: center;
+}
+
+.list_time {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.post_listing a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+/* -------------- New Post -------------- */
+.post_form {
+    padding-top: 24px;
+    width: 60%;
+    display: inline-block;
+}
+
+#current_author {
+    font-size: 16px;
+    margin: 0;
+}
+
+label[for=id_title] {
+    display: block;
+    margin-left: 120px;
+    text-align: left;
+}
+
+#id_title {
+    height: 40px; 
+    width: 400px;
+    margin: 0 120px;
+    text-align: center;
+    font-size: 28px;
+}
+
+label[for=id_content] {
+    display: block;
+    margin-left: 120px;
+    text-align: left;
+}
+
+#id_content {
+    height: 120px;
+    width: 400px;
+    margin: 0 120px;
+    text-align: left;
+    font-size: 21px;
+    font-family: 'Open sans', sans-serif;
+}
+
+
 
 
 /* -------------- Detail --------------    */
