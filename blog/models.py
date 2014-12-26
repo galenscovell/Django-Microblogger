@@ -17,7 +17,6 @@ class Post(models.Model):
         return self.title
 
 
-
 class Comment(models.Model):
     # Each comment is related to a single Post
     post = models.ForeignKey(Post)
@@ -28,4 +27,5 @@ class Comment(models.Model):
 
     def __str__(self):
         return str(self.id)
+
 

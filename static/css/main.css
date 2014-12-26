@@ -56,8 +56,8 @@ body {
 }
 
 #nav li a {
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
     display: block;
     padding: 12px 20px;
     text-decoration: none;
@@ -107,7 +107,7 @@ li span {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 200px;
+    height: 120px;
     text-align: center;
 }
 
@@ -298,6 +298,43 @@ label[for=id_content] {
 
 
 
+
+/* -------------- User -------------- */
+#user_bar {
+    position: fixed;
+    height: 40px;
+    width: 200px;
+    bottom: 10px;
+    right: 10px;
+    padding: 6px;
+    background: #446CB3;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+#user_bar_name {
+    font-size: 14px;
+    color: #f3f3f3;
+    text-align: center;
+    margin: 0;
+}
+
+#user_bar_email {
+    font-size: 14px;
+    color: #f3f3f3;
+    text-align: center;
+    margin: 0;
+}
+
+#login_error {
+    font-size: 14px;
+    color: green;
+    margin: 0;
+    padding: 20px 0;
+}
+
+#id_username
 
 /* -------------- Detail --------------    */
 #post_main {

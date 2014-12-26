@@ -56,7 +56,6 @@ ROOT_URLCONF = 'microblogger.urls'
 
 WSGI_APPLICATION = 'microblogger.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 

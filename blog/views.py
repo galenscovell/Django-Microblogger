@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
+from django.contrib.auth.decorators import login_required
 
 
 def main_page(request):
@@ -18,8 +19,9 @@ def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     page_title = post.title
     return render(request, 'blog/detail.html', {"post": post, "page_title": page_title})
-    
 
+
+@login_required
 def post_new(request):
     page_title = "New Post"
     if request.method == "POST":
