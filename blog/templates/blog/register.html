@@ -2,10 +2,14 @@
 
 {% block content %}
     {% if registered %}
-        <p class="login_message">User registered.</p>
+        {% for message in messages %}
+            <p class="{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
     {% else %}
-        {% if form.errors %}
-            <p class="login_message">There was an error registering with those credentials.</p>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="{{ message.tags }}">{{ message }}</p>
+            {% endfor %}
         {% endif %}
 
         <form class="user_form" method="post" action="{% url 'blog.views.user_register' %}">

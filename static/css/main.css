@@ -17,17 +17,76 @@ body {
 
 
 
+/* -------------- Flash Messages -------------- */
+.success {
+    height: 20px;
+    width: 200px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    padding: 10px 10px;
+    background: #B5DD86;
+    border-radius: 2px;
+}
+
+.error {
+    height: 20px;
+    width: 200px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    padding: 10px 10px;
+    background: #F67D6D;
+    border-radius: 2px;
+}
+
+.info {
+    height: 20px;
+    width: 200px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    padding: 10px 10px;
+    background: #ADCCEB;
+    border-radius: 2px;
+}
+
+.warning {
+    height: 20px;
+    width: 200px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    padding: 10px 10px;
+    background: #F4D28A;
+    border-radius: 2px;
+}
+
+.success p,
+.error p,
+.info p,
+.warning p {
+    line-height: 20px;
+    margin: 0;
+}
+
+
+
+
 /* -------------- Buttons -------------- */
+
 button[type="submit"] {
     position: relative;
     font-size: 14px;
     border: 0px solid rgba(0, 0, 0, 0);
-    margin: 20px 10px 0 10px;
+    margin: 20px auto 0 auto;
     padding: 8px 26px;
+    display: block;
     box-shadow: 0px 6px 0px #005C5F;
     background: #00979C;
     color: #ffffff;
     width: 200px;
+    border-radius: 4px;
 }
 
 button[type="submit"]:hover {
@@ -46,12 +105,13 @@ button[type="extra"] {
     position: relative;
     font-size: 14px;
     border: 0px solid rgba(0, 0, 0, 0);
-    margin: 0 10px 20px 10px;
+    margin: 0 auto 20px auto;
     padding: 8px 26px;
     box-shadow: 0px 6px 0px #005C5F;
     background: #00979C;
     color: #ffffff;
     width: 200px;
+    border-radius: 4px;
 }
 
 button[type="extra"]:hover {
@@ -241,7 +301,7 @@ h3 {
     background: #FFFFFF;
     width: 90%;
     margin: 0 auto;
-    padding-top: 0;
+    padding-top: 10px;
     border-radius: 0px 0px 5px 5px;
     box-shadow: 0px 0.75px 0.5px rgba(0, 0, 0, 0.2);
     font-family: 'Ubuntu', sans-serif;
@@ -308,9 +368,9 @@ h3 {
 
 /* -------------- New Post -------------- */
 .post_form {
-    padding-top: 24px;
+    padding: 20px 0;
     width: 60%;
-    display: inline-block;
+    margin: 0 auto;
 }
 
 #current_author {
@@ -318,33 +378,37 @@ h3 {
     margin: 0;
 }
 
-label[for=id_title] {
+label[for=id_title],
+label[for=id_content] {
     display: block;
-    margin-left: 120px;
-    text-align: left;
+    letter-spacing: 2px;
+    margin-top: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
 }
 
 #id_title {
     height: 40px; 
-    width: 400px;
-    margin: 0 120px;
-    text-align: center;
+    width: 45%;
+    margin: 0 auto;
     font-size: 28px;
-}
-
-label[for=id_content] {
-    display: block;
-    margin-left: 120px;
-    text-align: left;
+    padding: 4px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    background: #E4F1FE;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #id_content {
-    height: 120px;
-    width: 400px;
-    margin: 0 120px;
-    text-align: left;
-    font-size: 21px;
-    font-family: 'Open sans', sans-serif;
+    height: 120px; 
+    width: 65%;
+    margin: 0 auto;
+    font-size: 24px;
+    padding: 4px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    background: #E4F1FE;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -378,52 +442,38 @@ label[for=id_content] {
     margin: 0;
 }
 
-.login_message {
-    font-size: 14px;
-    color: green;
-    margin: 0;
-    padding: 10px 0;
-}
-
 .user_form {
     width: 80%;
     margin: 0 auto;
     text-align: center;
-    padding: 30px 0;
+    padding: 20px 0 10px 0;
 }
 
-.user_form label[for=id_username] {
-    display: block;
-}
-
-.user_form #id_username {
-    height: 40px; 
-    width: 400px;
-    margin: 0 120px;
-    font-size: 28px;
-}
-
-.user_form label[for=id_password] {
-    display: block;
-}
-
-.user_form #id_password {
-    height: 40px; 
-    width: 400px;
-    margin: 0 120px;
-    font-size: 28px;
-}
-
+.user_form label[for=id_username],
+.user_form label[for=id_password],
 .user_form label[for=id_email] {
     display: block;
+    letter-spacing: 2px;
+    margin-top: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
 }
 
+.user_form #id_username,
+.user_form #id_password,
 .user_form #id_email {
     height: 40px; 
-    width: 400px;
-    margin: 0 120px;
+    width: 45%;
+    margin: 0 auto;
     font-size: 28px;
+    padding: 4px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    background: #E4F1FE;
+    font-family: 'Open Sans', sans-serif;
 }
+
+
 
 
 /* -------------- Detail --------------    */

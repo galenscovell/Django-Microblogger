@@ -2,9 +2,19 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{{ message.tags }}">{{ message }}<a href="">X</a></p>
+        {% endfor %}
+    {% endif %}
+
     <form class="post_form" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.title.label_tag }}
+        {{ form.title }}
+        {{ form.content.label_tag }}
+        {{ form.content }}
         <button type="submit">PUBLISH</button>
     </form>
+    <a href="{% url 'blog.views.main_page' %}"><button type="extra">RETURN</button></a>
 {% endblock %}

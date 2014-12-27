@@ -1,12 +1,20 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <p class="login_message">{{ message }}</p>
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
 
     <form class="user_form" method="post" action="{% url 'blog.views.user_login' %}">
         {% csrf_token %}
-        <label for="id_username">Username:</label> <input id="id_username" type="text" name="username" value="" />
-        <label for="id_password">Password:</label> <input id="id_password" type="password" name="password" value="" />
+        <label for="id_username">Username:</label> 
+        <input id="id_username" type="text" name="username" value="" />
+
+        <label for="id_password">Password:</label> 
+        <input id="id_password" type="password" name="password" value="" />
+
         <button type="submit" value="submit">LOGIN</button>
     </form>
 

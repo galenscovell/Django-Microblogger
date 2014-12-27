@@ -3,6 +3,7 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm, UserForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 
 def main_page(request):
@@ -33,21 +34,18 @@ def user_login(request):
                 login(request, user)
                 return redirect('blog.views.main_page')
             else:
-                message = "Inactive account credentials."
-                return render(request, 'blog/login.html', {"page_title": page_title, "message": message})
+                messages.error(request, 'Inactive account.')
         else:
-            message = "No match found for those credentials."
-            return render(request, 'blog/login.html', {"page_title": page_title, "message": message})
-    else:
-        return render(request, 'blog/login.html', {"page_title": page_title})
+            messages.error(request, 'Account not found.')
+    return render(request, 'blog/login.html', {"page_title": page_title})
 
 
 @login_required
 def user_logout(request):
     page_title = "Login"
     logout(request)
-    message = "User logged out."
-    return render(request, 'blog/login.html', {"page_title": page_title, "message": message})
+    messages.success(request, 'User logged out.')
+    return render(request, 'blog/login.html', {"page_title": page_title})
 
 
 def user_register(request):
@@ -60,8 +58,9 @@ def user_register(request):
             user.set_password(user.password)
             user.save()
             registered = True
+            messages.success(request, 'Registration complete.')
         else:
-            return render(request, 'blog/register.html', {"form": user_form, "registered": registered, "page_title": page_title})
+            messages.error(request, 'Registration error.')
     else:
         user_form = UserForm()
     return render(request, 'blog/register.html', {"form": user_form, "registered": registered, "page_title": page_title})
@@ -77,7 +76,10 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            messages.success(request, 'Post created.')
             return redirect('blog.views.post_detail', post_id=post.pk)
+        else:
+            messages.error(request, 'Posting error.')
     else:
         # First time, display blank PostForm...
         form = PostForm()
