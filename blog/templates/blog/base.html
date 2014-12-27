@@ -15,7 +15,7 @@
             <!-- Nav bar -->
             <div id="nav">
                 <ul>
-                    <div id="logo"><a href="{% url 'blog.views.main_page' %}"><img src="{% static 'css/img/ice.gif' %}"></img></a></div>
+                    <div id="logo"><a href="{% url 'blog.views.about_page' %}"><img src="{% static 'css/img/ice.gif' %}"></img></a></div>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'blog.views.user_logout' %}"><span class="fa fa-bars"></span> LOGOUT</a></li>
                     {% else %}

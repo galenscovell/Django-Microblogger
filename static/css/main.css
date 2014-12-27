@@ -301,7 +301,7 @@ h3 {
     background: #FFFFFF;
     width: 90%;
     margin: 0 auto;
-    padding-top: 10px;
+    padding: 10px 0;
     border-radius: 0px 0px 5px 5px;
     box-shadow: 0px 0.75px 0.5px rgba(0, 0, 0, 0.2);
     font-family: 'Ubuntu', sans-serif;
@@ -311,7 +311,74 @@ h3 {
 
 
 
-/* -------------- List --------------    */
+/* -------------- About -------------- */
+#about_container {
+    padding: 30px;
+    width: 70%;
+    margin: 10px auto;
+    background: #E4F1FE;
+    border-radius: 10px;
+}
+
+#about_left {
+    width: 60%;
+    text-align: left;
+    display: inline-block;
+}
+
+#about_left ul {
+    list-style: none;
+}
+
+#about_left li {
+    float: left;
+    width: 90%;
+    padding: 8px;
+    transition: 0.2s;
+}
+
+#about_left li:hover {
+    background: rgba(100, 100, 100, 0.1);
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+#about_left img {
+    height: 80px;
+    width: 240px;
+    margin-left: 160px;
+}
+
+#about_right {
+    display: inline-block;
+    width: 30%;
+}
+
+#about_right img {
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 8px solid #2C3E50;
+}
+
+#about_right a {
+    text-decoration: none;
+}
+
+#about_right span {
+    color: #22A7F0;
+    transition: 0.2s;
+}
+
+#about_right span:hover {
+    color: #81CFE0;
+    transition: 0.1s;
+}
+
+
+
+/* -------------- List -------------- */
 .post_list_container {
     width: 90%;
     display: inline-block;

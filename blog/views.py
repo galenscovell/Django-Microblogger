@@ -6,9 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 
-def main_page(request):
-    page_title = 'µBlog'
-    return render(request, 'blog/index.html', {"page_title": page_title})
+def about_page(request):
+    page_title = 'About'
+    return render(request, 'blog/about.html', {"page_title": page_title})
 
 
 def post_list(request):
@@ -32,7 +32,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return redirect('blog.views.main_page')
+                return redirect('blog.views.post_list')
             else:
                 messages.error(request, 'Inactive account.')
         else:
@@ -66,7 +66,7 @@ def user_register(request):
     return render(request, 'blog/register.html', {"form": user_form, "registered": registered, "page_title": page_title})
 
 
-@login_required
+@login_required(login_url="/login/")
 def post_new(request):
     page_title = "New Post"
     if request.method == "POST":

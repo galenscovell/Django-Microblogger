@@ -4,8 +4,8 @@ from . import views
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', views.main_page),
-    url(r'^all/$', views.post_list),
+    url(r'^$', views.post_list),
+    url(r'^about/$', views.about_page),
     url(r'^post/(?P<post_id>[0-9]+)/$', views.post_detail),
     url(r'^new/$', views.post_new),
     url(r'^register/$', views.user_register),
