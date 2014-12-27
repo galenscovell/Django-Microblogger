@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Post(models.Model):
     author = models.ForeignKey('auth.user')
@@ -28,4 +29,13 @@ class Comment(models.Model):
     def __str__(self):
         return str(self.id)
 
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    post_count = models.PositiveSmallIntegerField(default=0)
+    comment_count = models.PositiveSmallIntegerField(default=0)
+    karma = models.SmallIntegerField(default=0)
+
+    def __unicode__(self):
+        return self.user.username
 

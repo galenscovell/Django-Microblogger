@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    {% if registered %}
+        <p class="login_message">User registered.</p>
+    {% else %}
+        {% if form.errors %}
+            <p class="login_message">There was an error registering with those credentials.</p>
+        {% endif %}
+
+        <form class="user_form" method="post" action="{% url 'blog.views.user_register' %}">
+            {% csrf_token %}
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.password.label_tag }}
+            {{ form.password }}
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            <button type="submit" name="submit" value="Register">REGISTER</button>
+        </form>
+    {% endif %}
+
+    <a href="{% url 'blog.views.user_login' %}"><button type="extra">RETURN</button></a>
+{% endblock %}

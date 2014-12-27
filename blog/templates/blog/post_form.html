@@ -2,9 +2,9 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <form method="POST" class="post_form">
+    <form class="post_form" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Save</button>
+        <button type="submit">PUBLISH</button>
     </form>
 {% endblock %}

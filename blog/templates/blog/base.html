@@ -17,9 +17,9 @@
                 <ul>
                     <div id="logo"><a href="{% url 'blog.views.main_page' %}"><img src="{% static 'css/img/ice.gif' %}"></img></a></div>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'django.contrib.auth.views.logout' %}"><span class="fa fa-bars"></span> LOGOUT</a></li>
+                        <li><a href=""><span class="fa fa-bars"></span> LOGOUT</a></li>
                     {% else %}
-                        <li><a href="{% url 'django.contrib.auth.views.login' %}"><span class="fa fa-bars"></span> LOGIN</a></li>
+                        <li><a href="{% url 'blog.views.user_login' %}"><span class="fa fa-bars"></span> LOGIN</a></li>
                     {% endif %}
                     <li><a href=""><span class="fa fa-bars"></span> TOPICS</a></li>
                     <li><a href="{% url 'blog.views.post_list' %}"><span class="fa fa-bars"></span> LIST</a></li>

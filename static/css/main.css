@@ -17,7 +17,81 @@ body {
 
 
 
-/* -------------- Nav bar --------------    */
+/* -------------- Buttons -------------- */
+button[type="submit"] {
+    position: relative;
+    font-size: 14px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    margin: 20px 10px 0 10px;
+    padding: 8px 26px;
+    box-shadow: 0px 6px 0px #005C5F;
+    background: #00979C;
+    color: #ffffff;
+    width: 200px;
+}
+
+button[type="submit"]:hover {
+    box-shadow: 0px 4px 0px #005C5F;
+    top: 2px;
+    cursor: pointer;
+}
+
+button[type="submit"]:active {
+    box-shadow: 0px 0px 0px #2F3134;
+    top: 6px;
+    transition: 0.2s;
+}
+
+button[type="extra"] {
+    position: relative;
+    font-size: 14px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    margin: 0 10px 20px 10px;
+    padding: 8px 26px;
+    box-shadow: 0px 6px 0px #005C5F;
+    background: #00979C;
+    color: #ffffff;
+    width: 200px;
+}
+
+button[type="extra"]:hover {
+    box-shadow: 0px 4px 0px #005C5F;
+    top: 2px;
+    cursor: pointer;
+}
+
+button[type="extra"]:active {
+    box-shadow: 0px 0px 0px #2F3134;
+    top: 6px;
+    transition: 0.2s;
+}
+
+button[type="search"] {
+    position: relative;
+    font-size: 14px;
+    padding: 8px 26px;
+    margin-top: 4px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.7);
+    background: #005C5F;
+    color: #ffffff;
+}
+
+button[type="search"]:hover {
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.7);
+    top: 2px;
+    cursor: pointer;
+}
+
+button[type="search"]:active {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.7);
+    top: 6px;
+    transition: 0.2s;
+}
+
+
+
+/* -------------- Nav bar -------------- */
 #nav {
     position: fixed;
     font-family: 'Montserrat', sans-serif;
@@ -120,29 +194,6 @@ li span {
     border: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     padding: 0px 6px;
-}
-
-button[type="search"] {
-    position: relative;
-    font-size: 14px;
-    padding: 8px 26px;
-    margin-top: 4px;
-    border: 0px solid rgba(0, 0, 0, 0);
-    box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.7);
-    background: #005C5F;
-    color: #ffffff;
-}
-
-button[type="search"]:hover {
-    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.7);
-    top: 2px;
-    cursor: pointer;
-}
-
-button[type="search"]:active {
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.7);
-    top: 6px;
-    transition: 0.2s;
 }
 
 
@@ -327,14 +378,53 @@ label[for=id_content] {
     margin: 0;
 }
 
-#login_error {
+.login_message {
     font-size: 14px;
     color: green;
     margin: 0;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
-#id_username
+.user_form {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.user_form label[for=id_username] {
+    display: block;
+}
+
+.user_form #id_username {
+    height: 40px; 
+    width: 400px;
+    margin: 0 120px;
+    font-size: 28px;
+}
+
+.user_form label[for=id_password] {
+    display: block;
+}
+
+.user_form #id_password {
+    height: 40px; 
+    width: 400px;
+    margin: 0 120px;
+    font-size: 28px;
+}
+
+.user_form label[for=id_email] {
+    display: block;
+}
+
+.user_form #id_email {
+    height: 40px; 
+    width: 400px;
+    margin: 0 120px;
+    font-size: 28px;
+}
+
 
 /* -------------- Detail --------------    */
 #post_main {
@@ -538,30 +628,6 @@ label[for=id_content] {
 
 #comment_list p {
     margin: 0;
-}
-
-button[type="submit"] {
-    position: relative;
-    font-size: 14px;
-    border: 0px solid rgba(0, 0, 0, 0);
-    margin: 10px;
-    margin-bottom: 30px;
-    padding: 8px 26px;
-    box-shadow: 0px 6px 0px #005C5F;
-    background: #00979C;
-    color: #ffffff;
-}
-
-button[type="submit"]:hover {
-    box-shadow: 0px 4px 0px #005C5F;
-    top: 2px;
-    cursor: pointer;
-}
-
-button[type="submit"]:active {
-    box-shadow: 0px 0px 0px #2F3134;
-    top: 6px;
-    transition: 0.2s;
 }
  
 .create_post, .edit_post {
