@@ -1,17 +1,13 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    {% if form.errors %}
-        <p class="login_message">No match found for that username and password. Try again?</p>
-    {% endif %}
+    <p class="login_message">{{ message }}</p>
 
     <form class="user_form" method="post" action="{% url 'blog.views.user_login' %}">
         {% csrf_token %}
-        {{ form.username.label_tag }}
-        {{ form.username }}
-        {{ form.password.label_tag }}
-        {{ form.password }}
-        <button type="submit">LOGIN</button>
+        <label for="id_username">Username:</label> <input id="id_username" type="text" name="username" value="" />
+        <label for="id_password">Password:</label> <input id="id_password" type="password" name="password" value="" />
+        <button type="submit" value="submit">LOGIN</button>
     </form>
 
     <a href="{% url 'blog.views.user_register' %}"><button type="extra">REGISTER</button></a>

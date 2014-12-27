@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from .forms import PostForm, CommentForm, UserForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 def main_page(request):
@@ -25,20 +25,29 @@ def post_detail(request, post_id):
 def user_login(request):
     page_title = "Login"
     if request.method == "POST":
-        form = UserForm(request.POST)
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
         if user:
-            print("User found.")
-            login(request, user)
-            return redirect('blog.views.main_page')
+            if user.is_active:
+                login(request, user)
+                return redirect('blog.views.main_page')
+            else:
+                message = "Inactive account credentials."
+                return render(request, 'blog/login.html', {"page_title": page_title, "message": message})
         else:
-            print("User not found.{0} {1}".format(request.POST['username'], request.POST['password']))
-            return redirect('blog.views.user_login')
+            message = "No match found for those credentials."
+            return render(request, 'blog/login.html', {"page_title": page_title, "message": message})
     else:
-        form = UserForm()
-    return render(request, 'blog/login.html', {"form": form, "page_title": page_title})
+        return render(request, 'blog/login.html', {"page_title": page_title})
+
+
+@login_required
+def user_logout(request):
+    page_title = "Login"
+    logout(request)
+    message = "User logged out."
+    return render(request, 'blog/login.html', {"page_title": page_title, "message": message})
 
 
 def user_register(request):
@@ -52,7 +61,7 @@ def user_register(request):
             user.save()
             registered = True
         else:
-            print(user_form.errors)
+            return render(request, 'blog/register.html', {"form": user_form, "registered": registered, "page_title": page_title})
     else:
         user_form = UserForm()
     return render(request, 'blog/register.html', {"form": user_form, "registered": registered, "page_title": page_title})
