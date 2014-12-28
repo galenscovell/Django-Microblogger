@@ -380,33 +380,39 @@ h3 {
 
 /* -------------- List -------------- */
 .post_list_container {
-    width: 90%;
+    width: 95%;
     display: inline-block;
-    text-align: center;
+    text-align: left;
     margin: 20px 0;
 }
 
 .post_listing {
-    margin: 2px 0;
+    margin: 4px 0;
+    height: 60px;
     display: inline-block;
 }
 
-.post_list_top {
+.post_list_left {
     overflow: hidden;
-    height: 200px;
-    border-radius: 6px 6px 0 0;
+    width: 200px;
+    height: 100%;
+    display: inline-block;
+    border-radius: 6px 0 0 6px;
 }
 
 .post_image {
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
 }
 
-.post_list_bottom {
-    height: 80px;
+.post_list_right {
+    width: 300px;
     border-radius: 2px;
-    padding: 10px;
     color: rgba(0, 0, 0, 0.6);
+    display: inline-block;
+    border-radius: 0 6px 6px 0;
+    padding-top: 4px;
+    vertical-align: top;
     transition: 0.3s;
 }
 
@@ -423,25 +429,18 @@ h3 {
     transition: 0.2s;
 }
 
-.list_id {
+.list_id_time {
     margin: 0;
-    text-align: right;
+    font-size: 12px;
 }
 
 .list_title {
     margin: 0;
-    text-align: center;
-    font-size: 21px;
+    font-size: 18px;
 }
 
 .list_author {
     margin: 0;
-    text-align: center;
-}
-
-.list_time {
-    margin: 0;
-    text-align: center;
     font-size: 14px;
 }
 
