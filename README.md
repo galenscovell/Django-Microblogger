@@ -2,8 +2,7 @@ Django-Microblogger
 ===================
 
 Blogging system built from the ground up with Django and PostgreSQL. 
-Based on my previous Sinatra-Microblogger. I realized it could be done better and more fully with a more robust framework. 
-(Bonus: Python <3)
+Based on my previous Sinatra-Microblogger. I realized it could be done better and more fully with a more robust framework.
 
 Planned Features:
 * User login/logout authentication, individual profiles

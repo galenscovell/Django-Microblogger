@@ -34,9 +34,11 @@ def user_login(request):
                 login(request, user)
                 return redirect('blog.views.post_list')
             else:
-                messages.error(request, 'Inactive account.')
+                messages.warning(request, 'Inactive account.')
+        elif username == "" or password == "":
+            messages.warning(request, 'All fields required.')
         else:
-            messages.error(request, 'Account not found.')
+            messages.error(request, 'No match found.')
     return render(request, 'blog/login.html', {"page_title": page_title})
 
 
@@ -66,15 +68,17 @@ def user_register(request):
     return render(request, 'blog/register.html', {"form": user_form, "registered": registered, "page_title": page_title})
 
 
-@login_required(login_url="/login/")
+@login_required
 def post_new(request):
     page_title = "New Post"
     if request.method == "POST":
         # ...then use POST request data from form
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
+        post_form = PostForm(request.POST)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
             post.author = request.user
+            if 'image' in request.FILES:
+                post.image = request.FILES['image']
             post.save()
             messages.success(request, 'Post created.')
             return redirect('blog.views.post_detail', post_id=post.pk)
@@ -82,6 +86,6 @@ def post_new(request):
             messages.error(request, 'Posting error.')
     else:
         # First time, display blank PostForm...
-        form = PostForm()
-    return render(request, 'blog/post_form.html', {"form": form, "page_title": page_title})
+        post_form = PostForm()
+    return render(request, 'blog/post_form.html', {"form": post_form, "page_title": page_title})
 

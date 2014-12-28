@@ -89,6 +89,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/media/'
+
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
@@ -98,7 +101,7 @@ DATABASES['default'] = dj_database_url.config()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 DEBUG = False
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = "/login/"
 
 try:
     from .local_settings import *

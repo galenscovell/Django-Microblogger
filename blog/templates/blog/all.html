@@ -2,15 +2,25 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
     <div class="post_list_container">
         {% for post in posts %}
             <div class="post_listing">
                 <a href="{% url 'blog.views.post_detail' post_id=post.pk %}">
-                    <div class="post_list_block">
-                        <p class="list_id">{{ post.id }}</p>
-                        <p class="list_title">{{ post.title }}</p>
-                        <p class="list_author">{{ post.author }}</p>
-                        <p class="list_time">{{ post.created_at }}</p>
+                    <div class="list_wrapper">
+                        <div class="post_list_top">
+                            <img class="post_image" src="{{ post.image.url }}" />
+                        </div>
+                        <div class="post_list_bottom">
+                            <p class="list_id">{{ post.id }}</p>
+                            <p class="list_title">{{ post.title }}</p>
+                            <p class="list_author">{{ post.author }}</p>
+                            <p class="list_time">{{ post.created_at }}</p>
+                        </div>
                     </div>
                 </a>
             </div>

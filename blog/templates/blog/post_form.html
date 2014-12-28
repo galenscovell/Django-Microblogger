@@ -4,17 +4,19 @@
 {% block content %}
     {% if messages %}
         {% for message in messages %}
-            <p class="{{ message.tags }}">{{ message }}<a href="">X</a></p>
+            <p class="{{ message.tags }}">{{ message }}</p>
         {% endfor %}
     {% endif %}
 
-    <form class="post_form" method="POST">
+    <form class="post_form" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.title.label_tag }}
         {{ form.title }}
         {{ form.content.label_tag }}
         {{ form.content }}
+        {{ form.image.label_tag }}
+        {{ form.image }}
         <button type="submit">PUBLISH</button>
     </form>
-    <a href="{% url 'blog.views.main_page' %}"><button type="extra">RETURN</button></a>
+    <a href="{% url 'blog.views.post_list' %}"><button type="extra">RETURN</button></a>
 {% endblock %}
