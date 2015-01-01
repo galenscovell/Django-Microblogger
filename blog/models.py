@@ -6,7 +6,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.user')
     title = models.CharField(max_length=24)
     content = models.TextField(max_length=120)
-    image = models.ImageField(upload_to='post_images/', blank=True)
+    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(blank=True, null=True)
     favorites = models.SmallIntegerField(default=0)

@@ -2,4 +2,49 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <div id="post_main">
+        <div id="content_container">
+            <div class="post_image_holder">
+                {% if post.image %}
+                    <img class="post_detail_image" src="{{ post.image.url }}" />
+                {% endif %}
+            </div>
+            <div id="content_user">
+                <p id="post_author">{{ post.author }}</p>
+            </div>
+
+            <div id="content">
+                <p id="post_content">{{ post.content }}</p>
+            </div>
+
+            <div id="options_time">
+                <div id="post_options">
+                    <a href="{% url 'blog.views.post_edit' post_id=post.pk %}"><span class="fa fa-pencil-square fa-2x"></span></a>
+                    <a href="{% url 'blog.views.post_delete' post_id=post.pk %}"><span class="fa fa-trash fa-2x"></span></a>
+                    <a href=""><span class="fa fa-star fa-2x"></span></a>
+                    <p id="post_likes">[ +{{post.favorites }} ]</p>
+                </div>
+                {% if post.updated_at %}
+                    <p id="post_time">Modified: {{ post.updated_at }}</p>
+                {% else %}
+                    <p id="post_time">Created: {{ post.created_at }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div id="comment_section">
+        <section id="add_comment">
+            <form id="comment_form" action="" method="post" accept-charset="utf-8">
+                <input type="text" id="add_comment_content" placeholder="Reply to {{ post.author }}"></input>
+                <input type="text" id="add_comment_author" placeholder="As&hellip;"></input>
+                <button type="submit" style="margin-bottom: 10px;">REPLY</button>
+            </form>
+        </section>
+    </div>
 {% endblock %}

@@ -13,7 +13,9 @@
                 <a href="{% url 'blog.views.post_detail' post_id=post.pk %}">
                     <div class="list_wrapper">
                         <div class="post_list_left">
-                            <img class="post_image" src="{{ post.image.url }}" />
+                            {% if post.image %}
+                                <img class="post_image" src="{{ post.image.url }}" />
+                            {% endif %}
                         </div>
                         <div class="post_list_right">
                             <p class="list_id_time">{{ post.created_at }} {{ post.id }}</p>

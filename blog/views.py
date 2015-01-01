@@ -89,3 +89,30 @@ def post_new(request):
         post_form = PostForm()
     return render(request, 'blog/post_form.html', {"form": post_form, "page_title": page_title})
 
+
+@login_required
+def post_edit(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    page_title = "Editing: " + post.title
+    if request.method == "POST":
+        post_form = PostForm(request.POST, instance=post)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.author = request.user
+            if 'image' in request.FILES:
+                post.image = request.FILES['image']
+            post.update()
+            messages.success(request, 'Post edited.')
+            return redirect('blog.views.post_detail', post_id=post.pk)
+        else:
+            messages.error(request, 'Editing error.')
+    else:
+        post_form = PostForm(instance=post)
+    return render(request, 'blog/post_form.html', {'form': post_form, "page_title": page_title})
+
+@login_required
+def post_delete(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    post.delete()
+    messages.success(request, 'Post deleted.')
+    return redirect('blog.views.post_list')
