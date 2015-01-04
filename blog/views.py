@@ -133,8 +133,13 @@ def comment_add(request, post_id):
     comment.author = request.user
     comment.post = post
     comment.content = request.POST['content']
-    comment.save()
+    if len(comment.content) > 0:
+        comment.save()
+        messages.success(request, 'Comment added.')
+    else:
+        messages.error(request, 'Commenting error.')
     return redirect('blog.views.post_detail', post_id=post.pk)
+
 
 @login_required
 def comment_upvote(request, post_id, comment_id):
@@ -142,6 +147,7 @@ def comment_upvote(request, post_id, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id)
     comment.votes += 1
     comment.save()
+    messages.success(request, 'Comment upvoted.')
     return redirect('blog.views.post_detail', post_id=post.pk)
 
 @login_required
@@ -150,4 +156,5 @@ def comment_downvote(request, post_id, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id)
     comment.votes -= 1
     comment.save()
+    messages.success(request, 'Comment downvoted.')
     return redirect('blog.views.post_detail', post_id=post.pk)
