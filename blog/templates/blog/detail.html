@@ -26,8 +26,8 @@
                 <div id="post_options">
                     <a href="{% url 'blog.views.post_edit' post_id=post.pk %}"><span class="fa fa-pencil-square fa-2x"></span></a>
                     <a href="{% url 'blog.views.post_delete' post_id=post.pk %}"><span class="fa fa-trash fa-2x"></span></a>
-                    <a href=""><span class="fa fa-star fa-2x"></span></a>
-                    <p id="post_likes">[ +{{post.favorites }} ]</p>
+                    <a href="{% url 'blog.views.post_like' post_id=post.pk %}"><span class="fa fa-star fa-2x"></span></a>
+                    <p id="post_likes">[ +{{ post.favorites }} ]</p>
                 </div>
                 {% if post.updated_at %}
                     <p id="post_time">Modified: {{ post.updated_at }}</p>
@@ -40,11 +40,35 @@
 
     <div id="comment_section">
         <section id="add_comment">
-            <form id="comment_form" action="" method="post" accept-charset="utf-8">
-                <input type="text" id="add_comment_content" placeholder="Reply to {{ post.author }}"></input>
-                <input type="text" id="add_comment_author" placeholder="As&hellip;"></input>
-                <button type="submit" style="margin-bottom: 10px;">REPLY</button>
+            <form id="comment_form" action="{% url 'blog.views.comment_add' post_id=post.pk %}" method="POST" accept-charset="utf-8">
+                {% csrf_token %}
+                <input type="text" id="add_comment_content" name="content" placeholder="Reply to {{ post.author }}"></input>
+                <button type="submit" style="margin-bottom: 20px;">REPLY</button>
             </form>
         </section>
+
+        {% if comments %}
+          {% for comment in comments %}
+            <article id="comment_list">
+              <div id="comment_content">
+                {% if comment.votes >= 0 %}
+                  <p style="color: green;" id="comment_upvotes">{{ comment.votes }}<span class="fa fa-level-up"><span></p>
+                {% else %}
+                  <p style="color: red;" id="comment_upvotes">{{ comment.votes }}<span class="fa fa-level-down"><span></p>
+                {% endif %}
+                <p id="comment_content_main">{{ comment.content }}</p>
+              </div>
+              <div id="comment_extra">
+                <p id="comment_content_time">{{ comment.created_at }}</p>
+                <p>{{ comment.author }}</p>
+                <div id="upvoting_option">
+                  <a href="{% url 'blog.views.comment_upvote' comment_id=comment.pk post_id=post.pk %}">Upvote</a>
+                  <a href="{% url 'blog.views.comment_downvote' comment_id=comment.pk post_id=post.pk %}">Downvote</a>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        {% endif %}
+
     </div>
 {% endblock %}

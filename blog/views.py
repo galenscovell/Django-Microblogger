@@ -19,8 +19,9 @@ def post_list(request):
 
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
+    comments = Comment.objects.filter(post=post_id)
     page_title = post.title
-    return render(request, 'blog/detail.html', {"post": post, "page_title": page_title})
+    return render(request, 'blog/detail.html', {"post": post, "page_title": page_title, "comments": comments})
 
 
 def user_login(request):
@@ -116,3 +117,37 @@ def post_delete(request, post_id):
     post.delete()
     messages.success(request, 'Post deleted.')
     return redirect('blog.views.post_list')
+
+@login_required
+def post_like(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    post.favorites += 1
+    post.save()
+    messages.success(request, 'Post favorited.')
+    return redirect('blog.views.post_detail', post_id=post.pk)
+
+@login_required
+def comment_add(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    comment = Comment()
+    comment.author = request.user
+    comment.post = post
+    comment.content = request.POST['content']
+    comment.save()
+    return redirect('blog.views.post_detail', post_id=post.pk)
+
+@login_required
+def comment_upvote(request, post_id, comment_id):
+    post = get_object_or_404(Post, pk=post_id)
+    comment = get_object_or_404(Comment, pk=comment_id)
+    comment.votes += 1
+    comment.save()
+    return redirect('blog.views.post_detail', post_id=post.pk)
+
+@login_required
+def comment_downvote(request, post_id, comment_id):
+    post = get_object_or_404(Post, pk=post_id)
+    comment = get_object_or_404(Comment, pk=comment_id)
+    comment.votes -= 1
+    comment.save()
+    return redirect('blog.views.post_detail', post_id=post.pk)
