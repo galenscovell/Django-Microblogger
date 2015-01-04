@@ -1,1 +1,1 @@
-web: python my_django_app/manage.py collectstatic --noinput waitress-serve --port=$PORT microblogger.wsgi:application
+web: waitress-serve --port=$PORT microblogger.wsgi:application
