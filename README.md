@@ -15,4 +15,4 @@ Planned Features:
 * Heroku hosting
 * Aesthetic appeal
 
-LIVE DEMO: [ In-Progress ]
+LIVE DEMO: [ https://django-microblogger.herokuapp.com/ ]
