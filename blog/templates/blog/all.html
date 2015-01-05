@@ -4,9 +4,12 @@
 {% block content %}
     {% if messages %}
         {% for message in messages %}
-            <p class="{{ message.tags }}">{{ message }}</p>
+            <p id="{{ message.tags }}" class="flash_message">{{ message }}</p>
         {% endfor %}
+    {% else %}
+        <p class="dummy_message"></p>
     {% endif %}
+    
     <div class="post_list_container">
         {% for post in posts %}
             <div class="post_listing">
@@ -19,7 +22,7 @@
                         </div>
                         <div class="post_list_right">
                             <p class="list_id_time">{{ post.created_at }} {{ post.id }}</p>
-                            <p class="list_title">{{ post.title }}</p>
+                            <p class="list_title">{{ post.title }} <span class="fa fa-star"></span> {{ post.favorites }} </p>
                             <p class="list_author">{{ post.author }}</p>
                         </div>
                     </div>

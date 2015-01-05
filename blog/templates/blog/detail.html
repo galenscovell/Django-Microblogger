@@ -4,9 +4,12 @@
 {% block content %}
     {% if messages %}
         {% for message in messages %}
-            <p class="{{ message.tags }}">{{ message }}</p>
+            <p id="{{ message.tags }}" class="flash_message">{{ message }}</p>
         {% endfor %}
+    {% else %}
+        <p class="dummy_message"></p>
     {% endif %}
+    
     <div id="post_main">
         <div id="content_container">
             <div class="post_image_holder">

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
-from .forms import PostForm, CommentForm, UserForm
+from .forms import PostForm, UserForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -33,6 +33,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
+                messages.success(request, 'Logged in.')
                 return redirect('blog.views.post_list')
             else:
                 messages.warning(request, 'Inactive account.')
@@ -158,3 +159,15 @@ def comment_downvote(request, post_id, comment_id):
     comment.save()
     messages.success(request, 'Comment downvoted.')
     return redirect('blog.views.post_detail', post_id=post.pk)
+
+def search(request):
+    query = request.GET.get('query')
+    if query:
+        messages.info(request, 'Found following for ' + query + '.')
+        results = Post.objects.filter(title__icontains=query) | Post.objects.filter(content__icontains=query)
+        page_title = "Search: " + query + "."
+    else:
+        messages.info(request, 'No search term entered.')
+        results = Post.objects.order_by('-created_at')
+        page_title = "Post Grid"
+    return render(request, 'blog/all.html', {'posts': results, 'page_title': page_title})

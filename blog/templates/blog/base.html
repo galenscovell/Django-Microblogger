@@ -26,13 +26,19 @@
                     <li><a href="{% url 'blog.views.post_new' %}"><span class="fa fa-bars"></span> NEW</a></li>
 
                     <div id="search">
+                        <form method="GET" action="{% url 'blog.views.search' %}">
+                            <input id="search_content" type="text" name="query" placeholder="Search site&hellip;"></input>
+                            <button type="search">Search</button>
+                        </form>
                     </div>
                 </ul>
             </div>
-            <div id="user_bar">
-                <p id="user_bar_name">{{ user.username }}</p>
-                <p id="user_bar_email">[{{ user.email }}]</p>
-            </div>
+            {% if user.is_authenticated %}
+                <div id="user_bar">
+                    <p id="user_bar_name">{{ user.username }}</p>
+                    <p id="user_bar_email">[{{ user.email }}]</p>
+                </div>
+            {% endif %}
 
         </header>
 

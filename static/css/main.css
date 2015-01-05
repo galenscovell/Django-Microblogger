@@ -18,7 +18,14 @@ body {
 
 
 /* -------------- Flash Messages -------------- */
-.success {
+.dummy_message {
+    height: 40px;
+    width: 200px;
+    margin: 10px auto;
+    background: rgba(0, 0, 0, 0);
+}
+
+#success {
     height: 20px;
     width: 200px;
     font-size: 14px;
@@ -27,9 +34,10 @@ body {
     padding: 10px 10px;
     background: #B5DD86;
     border-radius: 2px;
+    display: none;
 }
 
-.error {
+#error {
     height: 20px;
     width: 200px;
     font-size: 14px;
@@ -38,9 +46,10 @@ body {
     padding: 10px 10px;
     background: #F67D6D;
     border-radius: 2px;
+    display: none;
 }
 
-.info {
+#info {
     height: 20px;
     width: 200px;
     font-size: 14px;
@@ -49,9 +58,10 @@ body {
     padding: 10px 10px;
     background: #ADCCEB;
     border-radius: 2px;
+    display: none;
 }
 
-.warning {
+#warning {
     height: 20px;
     width: 200px;
     font-size: 14px;
@@ -60,12 +70,14 @@ body {
     padding: 10px 10px;
     background: #F4D28A;
     border-radius: 2px;
+    display: none;
 }
 
 .success p,
 .error p,
 .info p,
-.warning p {
+.warning p,
+.dummy_message p {
     line-height: 20px;
     margin: 0;
 }
@@ -132,19 +144,20 @@ button[type="search"] {
     padding: 8px 26px;
     margin-top: 4px;
     border: 0px solid rgba(0, 0, 0, 0);
-    box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.7);
-    background: #005C5F;
+    box-shadow: 0px 6px 0px #005C5F;
+    background: #00979C;
     color: #ffffff;
+    border-radius: 4px;
 }
 
 button[type="search"]:hover {
-    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 0px #005C5F;
     top: 2px;
     cursor: pointer;
 }
 
 button[type="search"]:active {
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 0px #005C5F;
     top: 6px;
     transition: 0.2s;
 }
@@ -248,12 +261,13 @@ li span {
 #search_content {
     display: inline-block;
     width: 85%;
-    height: 30px;
+    height: 40px;
     margin: 3px;
     font-size: 16px;
-    border: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     padding: 0px 6px;
+    transition: 0.2s;
 }
 
 
@@ -301,7 +315,7 @@ h3 {
     background: #FFFFFF;
     width: 90%;
     margin: 0 auto;
-    padding: 20px 0 0 0;
+    padding: 4px 0;
     border-radius: 0px 0px 5px 5px;
     box-shadow: 0px 0.75px 0.5px rgba(0, 0, 0, 0.2);
     font-family: 'Ubuntu', sans-serif;
@@ -383,7 +397,7 @@ h3 {
     width: 95%;
     display: inline-block;
     text-align: left;
-    margin: 20px 0;
+    margin: 4px 0 20px 0;
 }
 
 .post_listing {
@@ -398,11 +412,14 @@ h3 {
     height: 100%;
     display: inline-block;
     border-radius: 6px 0 0 6px;
+    transition: 0.2s;
 }
 
 .post_image {
     width: 100%;
     height: auto;
+    margin: -40px 0;
+    transition: 0.2s;
 }
 
 .post_list_right {
@@ -413,20 +430,14 @@ h3 {
     border-radius: 0 6px 6px 0;
     padding-top: 4px;
     vertical-align: top;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .list_wrapper {
     height: 100%;
     width: 100%;
-    background: #EB9532;
+    background: #27ae60;
     border-radius: 6px 6px 6px 6px;
-    transition: 0.3s;
-}
-
-.list_wrapper:hover {
-    background: hsla(200, 70%, 50%, 0.5);
-    transition: 0.2s;
 }
 
 .list_id_time {
@@ -514,9 +525,9 @@ label[for=id_image] {
     right: 10px;
     padding: 6px;
     background: #446CB3;
-    border-radius: 4px;
+    border-radius: 2px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-    display: none;
+    z-index: 9000;
 }
 
 #user_bar_name {
@@ -537,7 +548,7 @@ label[for=id_image] {
     width: 80%;
     margin: 0 auto;
     text-align: center;
-    padding: 20px 0 10px 0;
+    padding: 10px 0;
 }
 
 .user_form label[for=id_username],
