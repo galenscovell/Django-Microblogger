@@ -5,11 +5,9 @@ $(document).ready(function() {
 });
 
 $('div.post_listing').hover(function() {
-    $(this).find('img.post_image').css('width', '100%');
     $(this).find('div.post_list_left').css('width', '300px');
     $(this).find('div.post_list_right').css('width', '200px');
 }, function() {
-    $(this).find('img.post_image').css('width', '100%');
     $(this).find('div.post_list_left').css('width', '200px');
     $(this).find('div.post_list_right').css('width', '300px');
 });
