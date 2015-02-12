@@ -1,4 +1,4 @@
-![alt tag](http://galenscovell.github.io/css/pics/microblogger.png)
+<img src='http://galenscovell.github.io/css/pics/microblogger.png' width=600px />
 
 Django-Microblogger
 ===================
