@@ -1,4 +1,4 @@
-<img src='http://galenscovell.github.io/css/pics/microblogger.png' width=600px />
+<img src='http://galenscovell.github.io/css/pics/microblogger.png' width=500px />
 
 Django-Microblogger
 ===================
